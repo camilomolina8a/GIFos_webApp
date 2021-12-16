@@ -1,0 +1,10 @@
+key para obtener los 15 gifs trnding:
+https://api.giphy.com/v1/gifs/trending?api_key=GGRBVxsw3rsB59EvPkZllHb0uDtU9ZrO&limit=15&rating=g
+
+
+
+key para obtener lo que ponemos en el buscador:
+RECUERDA agregar la palabra que buscas justo a lado del
+= de la q ya que esto es requerido y quitas los espacios que pusiste para saber donde esta
+
+https://api.giphy.com/v1/gifs/search?api_key=GGRBVxsw3rsB59EvPkZllHb0uDtU9ZrO&q=  &limit=15&offset=0&rating=g&lang=en
