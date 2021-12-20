@@ -1,0 +1,73 @@
+.Filter-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 60%;
+    border: 2px solid green;
+}
+.Filter-title-light {
+    font-family: "Roboto", sans-serif;
+    font-size: 36px;
+    font-weight: normal;
+    color: #6809e1;
+}
+.Filter-title-light span {
+    font-weight: 900;
+}
+
+.Filter-title-dark {
+    font-family: "Roboto", sans-serif;
+    font-size: 36px;
+    font-weight: normal;
+    color: white;
+}
+.Filter-title-dark span {
+    font-weight: 900;
+}
+
+.Filter-form {
+    display: flex;
+}
+.Filter-form-input {
+    width: 490px;
+    height: 52px;
+    padding-left: 25px;
+    outline: none;
+    font-size: 18px;
+    border-radius: 60px 0 0 60px;
+    transition: all 0.15s;
+}
+.Filter-form-input.light {
+    color: #3f3f3f;
+    border: 1px solid #3f3f3f;
+    background-color: transparent;
+}
+.Filter-form-input.dark {
+    color: white;
+    border: 1px solid white;
+    background-color: transparent;
+}
+
+.Filter-button {
+    width: 80px;
+    color: white;
+    background-color: #6809e1;
+    border-radius: 0 60px 60px 0;
+    cursor: pointer;
+    transition: all 0.15s;
+}
+.Filter-button.light {
+    border: 1px solid #3f3f3f;
+    border-left: none;
+}
+.Filter-button.light:hover {
+    background-color: #4904a3;
+}
+.Filter-button.dark {
+    border: 1px solid white;
+    border-left: none;
+}
+.Filter-button.dark:hover {
+    background-color: #4904da;
+}

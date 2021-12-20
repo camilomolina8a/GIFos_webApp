@@ -1,11 +1,13 @@
 .App-container-light{
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    align-items: center;
     border-top: 6px solid #6809E1;
 }
 .App-container-dark{
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    align-items: center;
     border-top: 6px solid #6809E1;
 
     background-color: #373737;

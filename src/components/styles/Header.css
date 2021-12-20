@@ -12,7 +12,6 @@
     justify-content: center;
     width: 80px;
     align-items: center;
-    border: 1px solid green;
 }
 .Header-logo-container img {
     height: 60px;
@@ -23,7 +22,6 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    border: 1px solid green;
 }
 
 .Header-button-light {
@@ -35,6 +33,7 @@
     color: #6809e1;
     font-size: 14px;
     font-weight: bold;
+    transition: all 0.15s;
     background-color: transparent;
 }
 .Header-button-light:hover{
@@ -47,15 +46,16 @@
     width: 148px;
     height: 45px;
 
-    border: 2px solid #6809e1;
+    border: 2px solid white;
     border-radius: 60px;
     color: white;
     font-size: 14px;
     font-weight: bold;
+    transition: all 0.3s;
     background-color: transparent;
 }
 .Header-button-dark:hover{
     cursor: pointer;
-    color: white;
-    background-color: #6809e1;
+    color: #6809e1;
+    background-color: white;
 }
