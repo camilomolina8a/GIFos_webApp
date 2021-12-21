@@ -48,6 +48,18 @@
     border: 1px solid white;
     background-color: transparent;
 }
+.Filter-form-input-container{
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+.Filter-form-input-container img{
+    position: absolute;
+    right: 15px;
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+}
 
 .Filter-button {
     width: 80px;
@@ -71,3 +83,4 @@
 .Filter-button.dark:hover {
     background-color: #4904da;
 }
+
