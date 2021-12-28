@@ -4,7 +4,6 @@
     justify-content: center;
     align-items: center;
     width: 60%;
-    border: 2px solid green;
 }
 .Filter-title-light {
     font-family: "Roboto", sans-serif;
@@ -25,7 +24,13 @@
 .Filter-title-dark span {
     font-weight: 900;
 }
+.Filter-imagen{
+    display: flex;
+}
+.Filter-imagen img{
 
+    object-fit: cover;
+}
 .Filter-form {
     display: flex;
 }
@@ -81,6 +86,6 @@
     border-left: none;
 }
 .Filter-button.dark:hover {
-    background-color: #4904da;
+    background-color: #4c00f0;
 }
 

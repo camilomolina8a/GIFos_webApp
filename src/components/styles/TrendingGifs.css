@@ -1,0 +1,58 @@
+.TrendingGifs-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 65%;
+    padding-top: 10px;
+    margin-bottom: 40px;
+}
+.TrendingGifs-text{
+    font-family: "Roboto", sans-serif;
+    font-size: 42px;
+    font-weight: 500;
+    color: #6809e1;
+}
+.TrendingGifs-text.light{
+    color: #6809e1;
+}
+.TrendingGifs-text.dark{
+    color: #ffff;
+}
+
+.Trendings-results-container {
+    display: grid;
+    justify-content: center;
+    grid-row-gap: 30px;
+    grid-column-gap: 30px;
+    grid-template-columns: repeat(3, 250px);
+
+    margin-top: 10px;
+    padding: 30px;
+    width: 100%;
+}
+.Trendings-results-container.light {
+    background-color: #e7e7e7;
+}
+.Trendings-results-container.dark {
+    background-color: #212121;
+}
+.card {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    object-position: center;
+    transition: all 0.3s;
+}
+.card.light:hover {
+    filter: brightness(75%);
+    -webkit-box-shadow: 7px 7px 8px 0px rgba(50, 50, 50, 0.75);
+    -moz-box-shadow: 7px 7px 8px 0px rgba(50, 50, 50, 0.75);
+    box-shadow: 7px 7px 8px 0px rgba(50, 50, 50, 0.75);
+}
+.card.dark:hover {
+    filter: brightness(115%);
+    -webkit-box-shadow: 7px 7px 8px 0px rgba(80, 80, 80, 0.75);
+    -moz-box-shadow: 7px 7px 8px 0px rgba(80, 80, 80, 0.75);
+    box-shadow: 7px 7px 8px 0px rgba(80, 80, 80, 0.75);
+}
