@@ -6,6 +6,7 @@ import "./App.css";
 import Header from "./components/Header";
 import Filter from "./components/Filter";
 import TrendingGifs from "./components/TrendingGifs";
+//import NoResultsFound from "./components/NoResultsFound";
 
 //import Loader from "./components/Loader";
 
@@ -14,6 +15,7 @@ import TrendingGifs from "./components/TrendingGifs";
 function App() {
     const [modo, actualizarModo] = useState(true);
     const [busqueda, actualizarBusqueda] = useState("");
+    //const [buscarBtn, actualizarBuscarBtn] = useState(false);
 
     const manejarModo = () => {
         actualizarModo(!modo);
@@ -40,7 +42,6 @@ function App() {
 
     // },[])
     //#########################################
-
     return (
         <div className={modo ? "App-container-light" : "App-container-dark"}>
             <Header modo={modo} manejarModo={manejarModo} />
@@ -53,6 +54,7 @@ function App() {
             />
 
             <TrendingGifs modo={modo} />
+            
         </div>
     );
 }

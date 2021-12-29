@@ -57,6 +57,3 @@ function TrendingGifs({modo}) {
 
 export default TrendingGifs;
 
-{
-    //bitly_gif_url
-}
