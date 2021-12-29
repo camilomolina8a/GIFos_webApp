@@ -1,6 +1,5 @@
 import React from "react";
 import { useState, useEffect } from "react";
-import { BrowserRouter, Link } from "react-router-dom";
 
 import "../components/styles/TrendingGifs.css";
 
@@ -35,8 +34,7 @@ function TrendingGifs({modo}) {
                                     <a
                                         href={data.bitly_gif_url}
                                         target="_blank"
-                                        rel="noreferrer"
-                                        
+                                        rel="noreferrer" 
                                     >
                                         <img
                                             className={modo ? "card light" : "card dark"}

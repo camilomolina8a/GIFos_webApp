@@ -7,16 +7,16 @@
     padding-top: 10px;
     margin-bottom: 40px;
 }
-.TrendingGifs-text{
+.TrendingGifs-text {
     font-family: "Roboto", sans-serif;
     font-size: 42px;
     font-weight: 500;
     color: #6809e1;
 }
-.TrendingGifs-text.light{
+.TrendingGifs-text.light {
     color: #6809e1;
 }
-.TrendingGifs-text.dark{
+.TrendingGifs-text.dark {
     color: #ffff;
 }
 
@@ -42,17 +42,20 @@
     height: 250px;
     object-fit: cover;
     object-position: center;
-    transition: all 0.3s;
+    transition: box-shadow 0.2s;
 }
+
 .card.light:hover {
-    filter: brightness(75%);
-    -webkit-box-shadow: 7px 7px 8px 0px rgba(50, 50, 50, 0.75);
-    -moz-box-shadow: 7px 7px 8px 0px rgba(50, 50, 50, 0.75);
-    box-shadow: 7px 7px 8px 0px rgba(50, 50, 50, 0.75);
+    border: 3px solid #6809e1;
+    -webkit-box-shadow: 7px 7px 8px 0px rgba(104, 9, 225, 0.55);
+    -moz-box-shadow: 7px 7px 8px 0px rgba(104, 9, 225, 0.55);
+    box-shadow: 7px 7px 8px 0px rgba(104, 9, 225, 0.55);
 }
 .card.dark:hover {
-    filter: brightness(115%);
-    -webkit-box-shadow: 7px 7px 8px 0px rgba(80, 80, 80, 0.75);
-    -moz-box-shadow: 7px 7px 8px 0px rgba(80, 80, 80, 0.75);
-    box-shadow: 7px 7px 8px 0px rgba(80, 80, 80, 0.75);
+    border: 3px solid #6809e1;
+    -webkit-box-shadow: 7px 7px 8px 0px rgba(104, 9, 225, 0.55);
+    -moz-box-shadow: 7px 7px 8px 0px rgba(104, 9, 225, 0.55);
+    box-shadow: 7px 7px 8px 0px rgba(104, 9, 225, 0.55);
+    /* box-shadow: 7px 7px 8px 0px rgba(80, 80, 80, 0.55); */
 }
+
