@@ -7,7 +7,7 @@ import { trending_key, getData } from "../services";
 
 import Loader from "./Loader";
 
-function TrendingGifs({modo, palabraEnviada, buscarBtn}) {
+function TrendingGifs({ modo, palabraEnviada, buscarBtn }) {
     const [dataTrend, actualizarDataTrend] = useState([]);
 
     useEffect(() => {
@@ -23,34 +23,54 @@ function TrendingGifs({modo, palabraEnviada, buscarBtn}) {
     }, []);
     return (
         <>
-            {dataTrend.length > 0 && buscarBtn === false && (
-                <div className="TrendingGifs-container">
-                    <h1 className={modo ? "TrendingGifs-text light" : "TrendingGifs-text dark"}>Gifs en Tendencia</h1>
-                    <div className={modo ? "Trendings-results-container light" : "Trendings-results-container dark" }>
-                        {dataTrend.map((data) => {
-                            return (
-                                <>
-                                    <a
-                                        href={data.bitly_gif_url}
-                                        target="_blank"
-                                        rel="noreferrer" 
-                                    >
-                                        <img
-                                            className={modo ? "card light" : "card dark"}
-                                            src={data.images.downsized.url}
-                                            alt={data.title}
-                                            key={data.id}
-                                        />
-                                    </a>
-                                </>
-                            );
-                        })}
+            {buscarBtn === false && [
+                dataTrend.length > 0 ? (
+                    <div className="TrendingGifs-container">
+                        <h1
+                            className={
+                                modo
+                                    ? "TrendingGifs-text light"
+                                    : "TrendingGifs-text dark"
+                            }
+                        >
+                            Gifs en Tendencia
+                        </h1>
+                        <div
+                            className={
+                                modo
+                                    ? "Trendings-results-container light"
+                                    : "Trendings-results-container dark"
+                            }
+                        >
+                            {dataTrend.map((data) => {
+                                return (
+                                    <div  key={data.id}>
+                                        <a
+                                            href={data.bitly_gif_url}
+                                            target="_blank"
+                                            rel="noreferrer"
+                                        >
+                                            <img
+                                                className={
+                                                    modo
+                                                        ? "card light"
+                                                        : "card dark"
+                                                }
+                                                src={data.images.downsized.url}
+                                                alt={data.title}
+                                            />
+                                        </a>
+                                    </div>
+                                );
+                            })}
+                        </div>
                     </div>
-                </div>
-            ) }
+                ) : (
+                    <Loader />
+                ),
+            ]}
         </>
     );
 }
 
 export default TrendingGifs;
-

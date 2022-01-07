@@ -37,6 +37,7 @@ function Filter({
                         placeholder="Buscar Gif"
                         onChange={manejarBusqueda}
                         value={busqueda}
+                        required
                     />
                     {busqueda !== "" ? (
                         <img
