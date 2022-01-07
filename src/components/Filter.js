@@ -7,7 +7,13 @@ import lupa from "../assets/icon-search-mod-noc.png";
 import cerrar_dark from "../assets/eliminar-dark.png";
 import cerrar_light from "../assets/eliminar-light.png";
 
-function Filter({ modo, busqueda, manejarBusqueda, cancelarBusqueda}) {
+function Filter({
+    modo,
+    busqueda,
+    manejarBusqueda,
+    cancelarBusqueda,
+    manejarBuscarBtn,
+}) {
     return (
         <div className="Filter-container">
             <h1 className={modo ? "Filter-title-light" : "Filter-title-dark"}>
@@ -18,12 +24,11 @@ function Filter({ modo, busqueda, manejarBusqueda, cancelarBusqueda}) {
                 <img src={imgPersonas} alt="ilustracion de personas" />
             </div>
 
-            <form className="Filter-form">
+            <form className="Filter-form" onSubmit={manejarBuscarBtn}>
                 <div className="Filter-form-input-container">
                     <input
                         type="text"
                         name=""
-                        id=""
                         className={
                             modo
                                 ? "Filter-form-input light"
@@ -47,9 +52,8 @@ function Filter({ modo, busqueda, manejarBusqueda, cancelarBusqueda}) {
                     className={
                         modo ? "Filter-button light" : "Filter-button dark"
                     }
-                    onClick={""}
                 >
-                    <img src={lupa} alt="" />
+                    <img src={lupa} alt="lupa" />
                 </button>
             </form>
         </div>

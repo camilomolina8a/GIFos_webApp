@@ -6,16 +6,16 @@ import "./App.css";
 import Header from "./components/Header";
 import Filter from "./components/Filter";
 import TrendingGifs from "./components/TrendingGifs";
+import ResultsBySearch from "./components/ResultsBySearch";
 //import NoResultsFound from "./components/NoResultsFound";
 
 //import Loader from "./components/Loader";
 
-//import { getData, trending_key} from "./services";
-
 function App() {
     const [modo, actualizarModo] = useState(true);
     const [busqueda, actualizarBusqueda] = useState("");
-    //const [buscarBtn, actualizarBuscarBtn] = useState(false);
+    const [buscarBtn, actualizarBuscarBtn] = useState(false);
+    const [palabraEnviada, actualizarPalabraEnviada] = useState("");
 
     const manejarModo = () => {
         actualizarModo(!modo);
@@ -26,22 +26,15 @@ function App() {
     const cancelarBusqueda = () => {
         actualizarBusqueda("");
     };
-    //############################################
-    // useEffect(() => {
+    const manejarBuscarBtn = (e) => {
+        e.preventDefault();
+        actualizarBuscarBtn(true);
+        actualizarBusqueda("")
+        actualizarPalabraEnviada(busqueda);
 
-    //     const obtenerDataTrend = async (key) => {
-    //         try {
-    //             const data = await getData(key);
-    //             actualizarDataTrend(data.data);
+    }
 
-    //         } catch (error) {
-    //             console.error(error)
-    //         }
-    //     }
-    //     obtenerDataTrend(trending_key)
 
-    // },[])
-    //#########################################
     return (
         <div className={modo ? "App-container-light" : "App-container-dark"}>
             <Header modo={modo} manejarModo={manejarModo} />
@@ -51,10 +44,18 @@ function App() {
                 busqueda={busqueda}
                 manejarBusqueda={manejarBusqueda}
                 cancelarBusqueda={cancelarBusqueda}
+                manejarBuscarBtn = {manejarBuscarBtn}
             />
 
-            <TrendingGifs modo={modo} />
-            
+            <TrendingGifs modo={modo} buscarBtn={buscarBtn} busqueda={busqueda} />
+
+            <ResultsBySearch
+                modo={modo}
+                busqueda={busqueda}
+                buscarBtn={buscarBtn}
+                palabraEnviada={palabraEnviada}
+                actualizarBuscarBtn={actualizarBuscarBtn}
+            />
         </div>
     );
 }

@@ -7,7 +7,7 @@ import { trending_key, getData } from "../services";
 
 import Loader from "./Loader";
 
-function TrendingGifs({modo}) {
+function TrendingGifs({modo, palabraEnviada, buscarBtn}) {
     const [dataTrend, actualizarDataTrend] = useState([]);
 
     useEffect(() => {
@@ -21,10 +21,9 @@ function TrendingGifs({modo}) {
         };
         obtenerDataTrend(trending_key);
     }, []);
-    console.log(dataTrend);
     return (
         <>
-            {dataTrend.length > 0 ? (
+            {dataTrend.length > 0 && buscarBtn === false && (
                 <div className="TrendingGifs-container">
                     <h1 className={modo ? "TrendingGifs-text light" : "TrendingGifs-text dark"}>Gifs en Tendencia</h1>
                     <div className={modo ? "Trendings-results-container light" : "Trendings-results-container dark" }>
@@ -48,9 +47,7 @@ function TrendingGifs({modo}) {
                         })}
                     </div>
                 </div>
-            ) : (
-                <Loader />
-            )}
+            ) }
         </>
     );
 }
