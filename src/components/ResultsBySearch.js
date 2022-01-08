@@ -19,7 +19,6 @@ function ResultsBySearch({ modo, palabraEnviada, buscarBtn }) {
             const getDataSearch = async (url) => {
                 try {
                     const data = await getData(url);
-                    console.log(data.data)
                     if (data.data.length === 0 ) {
                         actualizarSinResultados(true);
                     }

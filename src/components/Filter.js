@@ -7,12 +7,15 @@ import lupa from "../assets/icon-search-mod-noc.png";
 import cerrar_dark from "../assets/eliminar-dark.png";
 import cerrar_light from "../assets/eliminar-light.png";
 
+import AutocompleteGif from "./AutocompleteGif";
+
+
 function Filter({
     modo,
     busqueda,
     manejarBusqueda,
     cancelarBusqueda,
-    manejarBuscarBtn,
+    manejarBuscarBtn
 }) {
     return (
         <div className="Filter-container">
@@ -57,6 +60,10 @@ function Filter({
                     <img src={lupa} alt="lupa" />
                 </button>
             </form>
+
+            <AutocompleteGif busqueda={busqueda} manejarBuscarBtn={manejarBuscarBtn} modo={modo} />
+
+
         </div>
     );
 }

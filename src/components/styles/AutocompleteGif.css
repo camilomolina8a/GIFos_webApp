@@ -1,0 +1,69 @@
+.AutocompleteGif-container{
+    position: absolute;
+    width: 500px;
+    height: auto;
+    top: 400px;
+    overflow: hidden;
+
+    z-index: 99;
+    border: 2px solid #6809E1;
+    border-radius: 20px;
+}
+.AutocompleteGif-container.light{
+    background-color: #fff;
+}
+.AutocompleteGif-container.dark{
+    background-color: #373737;
+}
+
+.Card-container{
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 45px;
+    padding: 20px;
+    cursor: pointer;
+    z-index: 9;
+    overflow:unset;
+
+    border: 0.5px solid rgba(220, 217, 220, 0.75);
+}
+.Card-container:first-child{
+    border-top: none;
+}
+.Card-container:last-child{
+    border-bottom: none;
+}
+.Card-container.light{
+    border: 0.5px solid rgb(220, 217, 220);
+}
+.Card-container.dark{
+    border-left: none;
+    border-right: none;
+}
+
+.Card-container.light:hover {
+    background-color: rgb(231, 223, 223);
+}
+.Card-container.dark:hover {
+    background-color: #222222;
+}
+.Card-container img{
+    height: 24px;
+    width: 24px;
+    margin-right: 10px;
+    opacity: 0.50;
+}
+.Card-container p{
+    font-family: "Roboto", sans-serif;
+    font-size: 18px;
+}
+.Card-container.light{
+    color: #000;
+    opacity: 0.80;
+}
+.Card-container.dark{
+    color: #fff;
+    opacity: 0.90;
+}
+

@@ -6,6 +6,8 @@
     width: 65%;
     padding-top: 10px;
     margin-bottom: 40px;
+
+    z-index: 9;
 }
 .TrendingGifs-text {
     font-family: "Roboto", sans-serif;
