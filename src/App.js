@@ -7,9 +7,6 @@ import Header from "./components/Header";
 import Filter from "./components/Filter";
 import TrendingGifs from "./components/TrendingGifs";
 import ResultsBySearch from "./components/ResultsBySearch";
-//import NoResultsFound from "./components/NoResultsFound";
-
-//import Loader from "./components/Loader";
 
 function App() {
     const [modo, actualizarModo] = useState(true);
@@ -31,9 +28,7 @@ function App() {
         actualizarBuscarBtn(true);
         actualizarBusqueda("")
         actualizarPalabraEnviada(busqueda);
-
     }
-
 
     return (
         <div className={modo ? "App-container-light" : "App-container-dark"}>

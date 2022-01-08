@@ -10,6 +10,7 @@ import NoResultsFound from "./NoResultsFound";
 
 function ResultsBySearch({ modo, palabraEnviada, buscarBtn }) {
     const [dataBusqueda, actualizarDataBusqueda] = useState([]);
+    const [sinResultados , actualizarSinResultados] = useState(false);
 
     const urlAPI = by_search_key + palabraEnviada + parameters;
 
@@ -18,7 +19,14 @@ function ResultsBySearch({ modo, palabraEnviada, buscarBtn }) {
             const getDataSearch = async (url) => {
                 try {
                     const data = await getData(url);
-                    actualizarDataBusqueda(data.data);
+                    console.log(data.data)
+                    if (data.data.length === 0 ) {
+                        actualizarSinResultados(true);
+                    }
+                    else{
+                        actualizarDataBusqueda(data.data);
+                        actualizarSinResultados(false);
+                    }
                 } catch (error) {
                     console.error(error);
                 }
@@ -32,7 +40,7 @@ function ResultsBySearch({ modo, palabraEnviada, buscarBtn }) {
 
     return (
         <>
-            {palabraEnviada !== "" &&  [
+            {buscarBtn  && sinResultados === false ? [
                     dataBusqueda.length > 0
                         ? [
                             <div className="ResultsBySearch-container">
@@ -85,7 +93,7 @@ function ResultsBySearch({ modo, palabraEnviada, buscarBtn }) {
                         <Loader />
                             
                             ]
-                ]}
+                ]: [sinResultados && buscarBtn && <NoResultsFound/>]}
         </>
     );
 }
