@@ -9,13 +9,16 @@ import cerrar_light from "../assets/eliminar-light.png";
 
 import AutocompleteGif from "./AutocompleteGif";
 
-
 function Filter({
     modo,
     busqueda,
     manejarBusqueda,
     cancelarBusqueda,
-    manejarBuscarBtn
+    manejarBuscarBtn,
+
+    actualizarBuscarBtn,
+    actualizarBusqueda,
+    actualizarPalabraEnviada
 }) {
     return (
         <div className="Filter-container">
@@ -61,9 +64,15 @@ function Filter({
                 </button>
             </form>
 
-            <AutocompleteGif busqueda={busqueda} manejarBuscarBtn={manejarBuscarBtn} modo={modo} />
+            <AutocompleteGif
+                busqueda={busqueda}
+                modo={modo}
+                
+                actualizarBuscarBtn={actualizarBuscarBtn}
+                actualizarBusqueda={actualizarBusqueda}
+                actualizarPalabraEnviada={actualizarPalabraEnviada}
 
-
+            />
         </div>
     );
 }

@@ -29,6 +29,7 @@ function App() {
         actualizarBusqueda("")
         actualizarPalabraEnviada(busqueda);
     }
+    
 
     return (
         <div className={modo ? "App-container-light" : "App-container-dark"}>
@@ -40,6 +41,11 @@ function App() {
                 manejarBusqueda={manejarBusqueda}
                 cancelarBusqueda={cancelarBusqueda}
                 manejarBuscarBtn = {manejarBuscarBtn}
+
+                actualizarBuscarBtn={actualizarBuscarBtn}
+                actualizarBusqueda={actualizarBusqueda}
+                actualizarPalabraEnviada={actualizarPalabraEnviada}
+                
             />
 
             <TrendingGifs modo={modo} buscarBtn={buscarBtn} busqueda={busqueda} />

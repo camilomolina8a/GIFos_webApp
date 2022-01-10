@@ -37,6 +37,12 @@ function ResultsBySearch({ modo, palabraEnviada, buscarBtn }) {
         }
     }, [urlAPI, buscarBtn]);
 
+    const listaCardbusqueda = dataBusqueda.map((data)=>{
+        return (
+            <CardBusqueda modo={modo} data={data} key={data.id}/>
+        )
+    })
+
     return (
         <>
             {buscarBtn  && sinResultados === false ? [
@@ -59,30 +65,7 @@ function ResultsBySearch({ modo, palabraEnviada, buscarBtn }) {
                                             : "ResultsBySearch-results-container dark"
                                     }
                                 >
-                                    {dataBusqueda.map((data) => {
-                                        return (
-                                            <div key={data.id}>
-                                                <a
-                                                    href={data.bitly_gif_url}
-                                                    target="_blank"
-                                                    rel="noreferrer"
-                                                >
-                                                    <img
-                                                        className={
-                                                            modo
-                                                                ? "card light"
-                                                                : "card dark"
-                                                        }
-                                                        src={
-                                                            data.images
-                                                                .downsized.url
-                                                        }
-                                                        alt={data.title}
-                                                    />
-                                                </a>
-                                            </div>
-                                        );
-                                    })}
+                                    {  listaCardbusqueda }
                                 </div>
                             </div>
                         ]
@@ -98,3 +81,30 @@ function ResultsBySearch({ modo, palabraEnviada, buscarBtn }) {
 }
 
 export default ResultsBySearch;
+
+
+function CardBusqueda(props) {
+    return (
+        <div >
+            <a
+                href={props.data.bitly_gif_url}
+                target="_blank"
+                rel="noreferrer"
+            >
+                <img
+                    className={
+                        props.modo
+                            ? "card light"
+                            : "card dark"
+                    }
+                    src={
+                        props.data.images
+                            .downsized.url
+                    }
+                    alt={props.data.title}
+                />
+            </a>
+        </div>
+    )
+}
+

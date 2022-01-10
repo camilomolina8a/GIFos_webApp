@@ -7,7 +7,7 @@ import { trending_key, getData } from "../services";
 
 import Loader from "./Loader";
 
-function TrendingGifs({ modo, palabraEnviada, buscarBtn }) {
+function TrendingGifs({ modo, buscarBtn }) {
     const [dataTrend, actualizarDataTrend] = useState([]);
 
     useEffect(() => {
@@ -21,6 +21,13 @@ function TrendingGifs({ modo, palabraEnviada, buscarBtn }) {
         };
         obtenerDataTrend(trending_key);
     }, []);
+
+    const listaCardTrending = dataTrend.map((data)=>{
+        return (
+            <CardTrend modo={modo} data={data} key={data.id}/>
+        )
+    })  
+
     return (
         <>
             {buscarBtn === false && [
@@ -42,27 +49,7 @@ function TrendingGifs({ modo, palabraEnviada, buscarBtn }) {
                                     : "Trendings-results-container dark"
                             }
                         >
-                            {dataTrend.map((data) => {
-                                return (
-                                    <div  key={data.id}>
-                                        <a
-                                            href={data.bitly_gif_url}
-                                            target="_blank"
-                                            rel="noreferrer"
-                                        >
-                                            <img
-                                                className={
-                                                    modo
-                                                        ? "card light"
-                                                        : "card dark"
-                                                }
-                                                src={data.images.downsized.url}
-                                                alt={data.title}
-                                            />
-                                        </a>
-                                    </div>
-                                );
-                            })}
+                            {listaCardTrending}
                         </div>
                     </div>
                 ) : (
@@ -74,3 +61,28 @@ function TrendingGifs({ modo, palabraEnviada, buscarBtn }) {
 }
 
 export default TrendingGifs;
+
+function CardTrend(props) {
+    return (
+        <div >
+            <a
+                href={props.data.bitly_gif_url}
+                target="_blank"
+                rel="noreferrer"
+            >
+                <img
+                    className={
+                        props.modo
+                            ? "card light"
+                            : "card dark"
+                    }
+                    src={
+                        props.data.images
+                            .downsized.url
+                    }
+                    alt={props.data.title}
+                />
+            </a>
+        </div>
+    )
+}
