@@ -10,7 +10,7 @@ import NoResultsFound from "./NoResultsFound";
 
 function ResultsBySearch({ modo, palabraEnviada, buscarBtn }) {
     const [dataBusqueda, actualizarDataBusqueda] = useState([]);
-    const [sinResultados , actualizarSinResultados] = useState(false);
+    const [sinResultados, actualizarSinResultados] = useState(false);
 
     const urlAPI = by_search_key + palabraEnviada + parameters;
 
@@ -19,10 +19,9 @@ function ResultsBySearch({ modo, palabraEnviada, buscarBtn }) {
             const getDataSearch = async (url) => {
                 try {
                     const data = await getData(url);
-                    if (data.data.length === 0 ) {
+                    if (data.data.length === 0) {
                         actualizarSinResultados(true);
-                    }
-                    else{
+                    } else {
                         actualizarDataBusqueda(data.data);
                         actualizarSinResultados(false);
                     }
@@ -37,74 +36,63 @@ function ResultsBySearch({ modo, palabraEnviada, buscarBtn }) {
         }
     }, [urlAPI, buscarBtn]);
 
-    const listaCardbusqueda = dataBusqueda.map((data)=>{
-        return (
-            <CardBusqueda modo={modo} data={data} key={data.id}/>
-        )
-    })
+    const listaCardbusqueda = dataBusqueda.map((data) => {
+        return <CardBusqueda modo={modo} data={data} key={data.id} />;
+    });
 
     return (
         <>
-            {buscarBtn  && sinResultados === false ? [
-                    dataBusqueda.length > 0
-                        ? [
-                            <div className="ResultsBySearch-container">
-                                <h1
-                                    className={
-                                        modo
-                                            ? "ResultsBySearch-text light"
-                                            : "ResultsBySearch-text dark"
-                                    }
-                                >
-                                    Resultados de tu Búsqueda
-                                </h1>
-                                <div
-                                    className={
-                                        modo
-                                            ? "ResultsBySearch-results-container light"
-                                            : "ResultsBySearch-results-container dark"
-                                    }
-                                >
-                                    {  listaCardbusqueda }
-                                </div>
+            {buscarBtn && sinResultados === false
+                ? [
+                    dataBusqueda.length > 0 ? (
+                        <div
+                            className="ResultsBySearch-container"
+                            key={"ResultsBySearch"}
+                        >
+                            <h1
+                                className={
+                                    modo
+                                        ? "ResultsBySearch-text light"
+                                        : "ResultsBySearch-text dark"
+                                }
+                            >
+                                Resultados de tu Búsqueda
+                            </h1>
+                            <div
+                                className={
+                                    modo
+                                        ? "ResultsBySearch-results-container light"
+                                        : "ResultsBySearch-results-container dark"
+                                }
+                            >
+                                {listaCardbusqueda}
                             </div>
-                        ]
-
-                        : [
-
-                        <Loader />
-                            
-                            ]
-                ]: [sinResultados && buscarBtn && <NoResultsFound/>]}
+                        </div>
+                    ) : (
+                        <Loader key={"2"} />
+                    ),
+                ]
+                : [
+                    sinResultados && buscarBtn && (
+                        <NoResultsFound key={"NoResultsFound"} />
+                    ),
+                ]}
         </>
     );
 }
 
 export default ResultsBySearch;
 
-
 function CardBusqueda(props) {
     return (
-        <div >
-            <a
-                href={props.data.bitly_gif_url}
-                target="_blank"
-                rel="noreferrer"
-            >
+        <div>
+            <a href={props.data.bitly_gif_url} target="_blank" rel="noreferrer">
                 <img
-                    className={
-                        props.modo
-                            ? "card light"
-                            : "card dark"
-                    }
-                    src={
-                        props.data.images
-                            .downsized.url
-                    }
+                    className={props.modo ? "card light" : "card dark"}
+                    src={props.data.images.downsized.url}
                     alt={props.data.title}
                 />
             </a>
         </div>
-    )
+    );
 }
-
