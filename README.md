@@ -1,1 +1,1 @@
-This is a simple web application which uses the GIPHY API to display gifs through an autocomplete search component.
+This is a simple React web application with Hooks, which uses the GIPHY API to display gifs through an autocomplete search component.
